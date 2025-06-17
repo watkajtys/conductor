@@ -11,6 +11,22 @@
 		"nodejs_compat",
 		"global_fetch_strictly_public"
 	],
+	"durable_objects": {
+		"bindings": [
+			{
+				"name": "PROJECT_ORCHESTRATOR",
+				"class_name": "ProjectOrchestrator"
+			}
+		]
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "conductor-db",
+			"database_id": "your-database-id-here",
+			"preview_database_id": "your-preview-database-id-here"
+		}
+	],
 	"assets": {
 		"directory": "./public"
 	},
