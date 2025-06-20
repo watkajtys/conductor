@@ -1,23 +1,22 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
+// src/index.js
+
+import { ProjectConductor } from './project_conductor.js';
 
 export default {
-	async fetch(request, env, ctx) {
-		const url = new URL(request.url);
-		switch (url.pathname) {
-			case '/message':
-				return new Response('Hello, World!');
-			case '/random':
-				return new Response(crypto.randomUUID());
-			default:
-				return new Response('Not Found', { status: 404 });
-		}
-	},
+  async fetch(request, env, ctx) {
+    // You can choose a consistent name for your DO instance,
+    // or generate IDs dynamically based on request parameters, etc.
+    // For this example, we'll use a fixed name.
+    const doId = env.PROJECT_CONDUCTOR.idFromName("default-conductor-instance");
+
+    // Get the Durable Object stub.
+    const stub = env.PROJECT_CONDUCTOR.get(doId);
+
+    // Forward the request to the Durable Object instance.
+    // The DO's fetch handler (in ProjectConductor class) will take over.
+    return stub.fetch(request);
+  },
 };
+
+// Important: Export the Durable Object class itself so that Cloudflare can instantiate it.
+export { ProjectConductor };

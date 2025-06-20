@@ -11,6 +11,30 @@
 		"nodejs_compat",
 		"global_fetch_strictly_public"
 	],
+	"durable_objects": {
+		"bindings": [
+			{
+				"name": "PROJECT_CONDUCTOR",
+				"class_name": "ProjectConductor"
+			}
+		]
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "conductor-db",
+			"database_id": "b7e0092f-6161-4cff-b2ee-af3643c19091",
+			"preview_database_id": "6dac068e-271c-451b-97a5-56407ed200fc"
+		}
+	],
+	"migrations": [
+		{
+			"tag": "v1",
+			"new_classes": [
+				"ProjectConductor"
+			]
+		}
+	],
 	"assets": {
 		"directory": "./public"
 	},

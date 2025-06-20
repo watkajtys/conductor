@@ -1,0 +1,8 @@
+-- Placeholder for initial database schema
+-- Define your tables and initial data here.
+-- Example:
+-- CREATE TABLE IF NOT EXISTS users (
+--   id TEXT PRIMARY KEY,
+--   username TEXT NOT NULL UNIQUE,
+--   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- );
